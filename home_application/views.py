@@ -17,14 +17,6 @@ def home(request):
     return render_mako_context(request, '/home_application/home.html', ctx)
 
 
-def multiplication_computer(request):
-    multiplier = int(request.POST.get('multiplier'))
-    multiplicand = int(request.POST.get('multiplicand'))
-    mult_result = multiplier * multiplicand
-    mult_record = MultRecord(multiplier=multiplier, multiplicand=multiplicand, mult_result=mult_result)
-    mult_record.save()
-    return render_json({'result': True, 'mult_result': mult_result})
-
 def dev_guide(request):
     """
     开发指引
@@ -37,6 +29,7 @@ def contactus(request):
     联系我们
     """
     return render_mako_context(request, '/home_application/contact.html')
+
 
 def hellopeanut(request):
     """
